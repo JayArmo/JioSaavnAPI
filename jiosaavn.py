@@ -60,8 +60,8 @@ def get_album(album_id, lyrics):
         return None
 
 
-def get_album_id(input_url):
-    res = requests.get(input_url)
+def get_album_id(query):
+    res = requests.get(query)
     try:
         return res.text.split('"album_id":"')[1].split('"')[0]
     except IndexError:
@@ -81,8 +81,8 @@ def get_playlist(listId, lyrics):
         return None
 
 
-def get_playlist_id(input_url):
-    res = requests.get(input_url).text
+def get_playlist_id(query):
+    res = requests.get(query).text
     try:
         return res.split('"type":"playlist","id":"')[1].split('"')[0]
     except IndexError:
